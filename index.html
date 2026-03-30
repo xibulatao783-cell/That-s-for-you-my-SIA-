@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Sia ❤️</title>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <style>
+        :root { --pink-bg: #fce4ec; --nav-pink: #f8bbd0; --active-pink: #f06292; --text-pink: #d81b60; }
+        body { background-color: var(--pink-bg); font-family: 'Quicksand', sans-serif; margin: 0; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 20px; box-sizing: border-box; }
+        
+        #login-screen { text-align: center; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 320px; border: 2px solid var(--nav-pink); position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 100; }
+        input { width: 100%; padding: 12px; margin: 20px 0; border: 2px solid var(--pink-bg); border-radius: 10px; text-align: center; outline: none; box-sizing: border-box; font-size: 1.2rem; letter-spacing: 2px; }
+        .unlock-btn { background: var(--active-pink); color: white; border: none; padding: 12px 30px; border-radius: 25px; cursor: pointer; width: 100%; font-weight: bold; }
+
+        #main-content { display: none; width: 100%; max-width: 600px; margin-top: 20px; }
+        .navbar { background: var(--nav-pink); display: flex; justify-content: space-around; padding: 10px; border-radius: 50px; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .tab-btn { background: white; border: none; padding: 10px; border-radius: 20px; color: var(--text-pink); font-weight: 600; font-size: 0.75rem; cursor: pointer; flex: 1; margin: 0 4px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .tab-btn.active { background: var(--active-pink); color: white; }
+
+        .card { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); min-height: 450px; }
+        .section { display: none; animation: fadeIn 0.6s ease; }
+        .section.active { display: block; }
+
+        .a-letter { font-family: 'Dancing Script', cursive; color: #e91e63; font-size: 2.2rem; border-bottom: 1px dashed #ccc; margin-bottom: 20px; padding-bottom: 10px; text-align: left; }
+        .letter-text { line-height: 1.8; color: #555; text-align: justify; font-size: 1rem; }
+
+        .music-item { display: flex; align-items: center; background: #fff; border-bottom: 1px solid #eee; padding: 15px 10px; text-decoration: none; transition: 0.3s; cursor: pointer; }
+        .music-item:hover { background: #fdf2f5; transform: translateX(5px); }
+        .music-icon { font-size: 1.5rem; margin-right: 15px; color: #9c27b0; }
+        .song-name { color: #d81b60; font-weight: 600; font-size: 1.1rem; }
+
+        .note-item { background: #fff0f5; border: 2px solid #f8bbd0; border-left: 6px solid var(--active-pink); padding: 15px; margin-bottom: 15px; border-radius: 10px; color: var(--text-pink); font-weight: 600; text-align: left; cursor: pointer; transition: 0.2s; }
+
+        /* Gallery Grid Fix for Pinterest images */
+        .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .gallery-grid img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; border: 2px solid var(--pink-bg); background: #eee; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div id="login-screen">
+        <h2 style="color: var(--text-pink); margin-top: 0;">Enter Secret Code ❤️</h2>
+        <input type="password" id="code" placeholder="••••••••">
+        <button class="unlock-btn" onclick="checkCode()">Unlock</button>
+    </div>
+
+    <div id="main-content">
+        <div class="navbar">
+            <button class="tab-btn active" onclick="show('letter', this)">❤️ Letter</button>
+            <button class="tab-btn" onclick="show('music', this)">🎵 Music</button>
+            <button class="tab-btn" onclick="show('notes', this)">📝 Notes</button>
+            <button class="tab-btn" onclick="show('gallery', this)">🖼️ Gallery</button>
+        </div>
+
+        <div class="card">
+            <!-- SECTION: LETTER -->
+            <div id="letter" class="section active">
+                <div style="color: var(--text-pink); font-size: 1.6rem; font-weight: bold; text-align: left;">Dear Sia,</div>
+                <div class="a-letter">A Letter For You</div>
+                <div class="letter-text">
+                    Hi Sia,<br><br>
+                    I created this little space just for you because even though miles separate us right now, I wanted a way to let you know that you’re always on my mind.<br><br>
+                    Thank you for giving me the chance to get to know you. The more we talk, the more I admire not just your beauty, but the person you are—your strength, your kindness, and the way you handle everything with such grace.<br><br>
+                    I want you to know that I’m in no rush. I am perfectly happy to wait hanggang sa hindi na natin kailangan ng screen para makita ang isa't isa. Until then, please know that I am always here in your corner, cheering you on.<br><br>
+                    Take care of yourself, Sia. I’m always just a message away.<br><br>
+                    <strong>With love and sincerity,</strong><br>
+                    [xi bulatao]
+                </div>
+            </div>
+
+            <!-- SECTION: MUSIC (Auto-play URI for Spotify App) -->
+            <div id="music" class="section">
+                <div class="a-letter">Our Playlist</div>
+                <p style="font-size: 0.8rem; color: #888; margin-bottom: 15px;">Click to auto-play on Spotify App:</p>
+                <a href="spotify:track:2afCBiru10AFckfOa49wIa" class="music-item">
+                    <span class="music-icon">♫</span><span class="song-name">You & I - One Direction</span>
+                </a>
+                <a href="spotify:track:3CeCwYWvdfXbZLXFhBrbnf" class="music-item">
+                    <span class="music-icon">♫</span><span class="song-name">Love Story - Taylor Swift</span>
+                </a>
+            </div>
+
+            <!-- SECTION: NOTES (Clickable) -->
+            <div id="notes" class="section">
+                <div class="a-letter">Some reminders</div>
+                <div class="note-item" onclick="alert('Ingat ka palagi para sa akin, Sia! ❤️')">Take care always</div>
+                <div class="note-item" onclick="alert('Wag papagutom ha? Kakain ka sa tamang oras! 🍴')">Eat on time</div>
+                <div class="note-item" onclick="alert('Kahit malayo tayo, sayo lang ang puso ko. Always. 💍')">You're mine... always</div>
+            </div>
+
+            <!-- SECTION: GALLERY (Fixed Pinterest Images) -->
+            <div id="gallery" class="section">
+                <div class="a-letter">Flowers for Sia</div>
+                <div class="gallery-grid">
+                    <img src="https://i.pinimg.com" alt="Blue 1">
+                    <img src="https://i.pinimg.com" alt="Blue 2">
+                    <img src="https://i.pinimg.com" alt="Blue 3">
+                    <img src="https://i.pinimg.com" alt="Blue 4">
+                    <img src="https://i.pinimg.com" alt="Blue 5">
+                    <img src="https://i.pinimg.com" alt="Blue 6">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkCode() {
+            if(document.getElementById('code').value === '01262026') {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            } else { alert('Maling code! ❤️'); }
+        }
+        function show(id, btn) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            btn.classList.add('active');
+        }
+    </script>
+</body>
+</html>
